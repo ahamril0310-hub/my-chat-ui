@@ -1,25 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --bg: #021024;
   --panel: #071A2B;
   --muted: #91A6C0;
-}
-
-body {
-  background-color: #0C1523;
-  color: #e6f6ff;
-}
-
-
-.chat-scrollbar::-webkit-scrollbar {
-  width: 10px;
-}
-.chat-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
 }
 
 @keyframes fadeIn {
@@ -32,12 +16,14 @@ body {
     transform: translateY(0);
   }
 }
+
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Scrollbar (same as ChatGPT’s) */
 .chat-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 .chat-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
@@ -45,4 +31,12 @@ body {
 }
 .chat-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Prevent input box overlap scroll */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #0C1523;
+  font-family: Inter, system-ui, sans-serif;
 }
