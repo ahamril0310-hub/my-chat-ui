@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
   output: "export",
   images: { unoptimized: true },
-  basePath: "/my-chat-ui",     // ← Replace with your repo name
-  assetPrefix: "/my-chat-ui/", // ← Same here
+  basePath: isProd ? "/my-chat-ui" : "",
+  assetPrefix: isProd ? "/my-chat-ui/" : "",
+  trailingSlash: true,
 };
 
 export default nextConfig;
